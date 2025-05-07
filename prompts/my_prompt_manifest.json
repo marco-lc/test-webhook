@@ -1,0 +1,126 @@
+{
+  "lc": 1,
+  "type": "constructor",
+  "id": [
+    "langchain",
+    "schema",
+    "runnable",
+    "RunnableSequence"
+  ],
+  "kwargs": {
+    "first": {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain",
+        "prompts",
+        "chat",
+        "ChatPromptTemplate"
+      ],
+      "kwargs": {
+        "messages": [
+          {
+            "lc": 1,
+            "type": "constructor",
+            "id": [
+              "langchain",
+              "prompts",
+              "chat",
+              "SystemMessagePromptTemplate"
+            ],
+            "kwargs": {
+              "prompt": {
+                "lc": 1,
+                "type": "constructor",
+                "id": [
+                  "langchain",
+                  "prompts",
+                  "prompt",
+                  "PromptTemplate"
+                ],
+                "kwargs": {
+                  "input_variables": [],
+                  "template_format": "mustache",
+                  "template": "You are a chatbot that answers questions consistently accurate. Only reference the information you're provided with to come to a conclusion."
+                }
+              }
+            }
+          },
+          {
+            "lc": 1,
+            "type": "constructor",
+            "id": [
+              "langchain",
+              "prompts",
+              "chat",
+              "HumanMessagePromptTemplate"
+            ],
+            "kwargs": {
+              "prompt": {
+                "lc": 1,
+                "type": "constructor",
+                "id": [
+                  "langchain",
+                  "prompts",
+                  "prompt",
+                  "PromptTemplate"
+                ],
+                "kwargs": {
+                  "input_variables": [
+                    "question",
+                    "information"
+                  ],
+                  "template_format": "mustache",
+                  "template": "Here is my question: {{question}}\n\nHere is the information for you to reference: {{information}}"
+                }
+              }
+            }
+          }
+        ],
+        "input_variables": [
+          "question",
+          "information"
+        ],
+        "template_format": "mustache"
+      }
+    },
+    "last": {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain",
+        "schema",
+        "runnable",
+        "RunnableBinding"
+      ],
+      "kwargs": {
+        "bound": {
+          "lc": 1,
+          "type": "constructor",
+          "id": [
+            "langchain",
+            "chat_models",
+            "openai",
+            "ChatOpenAI"
+          ],
+          "kwargs": {
+            "temperature": 1,
+            "top_p": 1,
+            "presence_penalty": 0,
+            "frequency_penalty": 0,
+            "model": "gpt-4.1-mini",
+            "extra_headers": {},
+            "openai_api_key": {
+              "id": [
+                "OPENAI_API_KEY"
+              ],
+              "lc": 1,
+              "type": "secret"
+            }
+          }
+        },
+        "kwargs": {}
+      }
+    }
+  }
+}
